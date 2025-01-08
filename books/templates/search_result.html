@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+
+{% if books %}
+    <!-- Display search results -->
+{% else %}
+    <p>No books match your search query.</p>
+{% endif %}
+
+{% endblock %}

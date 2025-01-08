@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Book cover column -->
+
+        <div class="col-4-md">
+            <div class="card-shadow-sm">
+                {% if book.cover_image %}
+                <img src="{{book.cover_image.url}}" alt="{{book.title}} Cover" class="card-img-top img-fluid" style="height: 400px; width: 400px; object-fit: contain;">
+
+                {% else %}
+                <div class="bg-light d-flex justify-content-center align-item-center" style="height: 400px;">
+                    <span class="text-muted">No Cover</span>                    
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <!-- Book Detail information -->
+
+        <div class="col-md-8">
+            <div class="card-shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0"> {{book.title}} </h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="mb-4">
+                        <div class="text-muted">
+                            By<h3>{{book.author}}</h3>
+                            <span class="badge bg-info"> {{book.genre.name}} </span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4>Book information</h4>
+                                <table class="table">
+                                    <tr>
+                                        <th>Publication Date:</th>
+                                        <td> {{book.publication_date | date:"F d, Y"}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Price:</th>
+                                        <td>$ {{book.price|floatformat:2}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Stock:</th>
+                                        <td>
+                                            {% if book.stock_quantity > 0 %}
+                                            <span class="badge bg-success">{{book.stock_quantity}} Available</span>
+                                            {% else %}
+                                            <span class="badge bg-danger">Out of stock </span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

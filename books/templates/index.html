@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container" style="padding-top: 2rem">
+	<div class="row" style="padding-right: 5rem">
+		<div class="col-12 col-md-6">
+			<h1 class="" style="font-size: 80px">Welcome to BookNest</h1>
+			<p class="mt-5 fst-italic fs-4">
+				"Welcome to **BookNest**—your ultimate sanctuary for book lovers,
+				dreamers, and knowledge seekers. Dive into a world where stories come
+				alive, and every page turns into an adventure. Whether you're searching
+				for timeless classics, modern bestsellers, or hidden literary gems,
+				we've got your next favorite book waiting. Explore, discover, and lose
+				yourself in our meticulously curated catalog, designed to spark your
+				imagination and fuel your passion for reading. Because every great story
+				deserves a reader—and every reader deserves a great story. Let the
+				journey begin!"
+			</p>
+		</div>
+		<div class="col-12 col-md-6 p-5">
+			<img
+				src="{% static 'image/bg.jpg' %}"
+				alt=""
+				style="
+					height: 85vh;
+					background-position: center;
+					width: 95vh;
+					padding-bottom: 3rem;
+				" />
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+asgiref==3.8.1
+certifi==2024.8.30
+crispy-bootstrap5==2024.10
+distlib==0.3.8
+Django==5.1.1
+django-allauth==64.2.1
+django-crispy-forms==2.3
+filelock==3.16.1
+pillow==10.4.0
+pipenv==2024.0.2
+platformdirs==4.3.6
+setuptools==75.1.0
+sqlparse==0.5.1
+tzdata==2024.1
+virtualenv==20.26.5

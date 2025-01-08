@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="card shadow-sm">
+				<div class="card-header bg-dark text-white">
+					<h2 class="mb-0">Add New Book</h2>
+				</div>
+				<div class="card-body">
+					<form method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="mb-3">
+							<label for="id_title" class="form-label">Title</label>
+							<input
+								type="text"
+								class="form-control"
+								name="title"								
+								required />							
+						</div>
+                        <div class="mb-3">
+							<label for="id_author" class="form-label">Author</label>
+							<input
+								type="text"
+								class="form-control"
+								name="author"								
+								required />							
+						</div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="id_publication_date" class="form-label">Publication Date</label>
+                                <input type="date" name="publication_date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_price" class="form-label">Price</label>
+                                <input type="number" name="price" step="0.01" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="id_stock_quantity" class="form-label">Stock Quantity</label>
+                                <input type="number" name="stock_quantity" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_genre" class="form-label">Genre</label>
+                                <select name="genre_id" class="form-select">
+                                    <option value="">Select Genre</option>
+                                    {% for genre in genres %}
+                                    <option value="{{genre.id}}">{{genre.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_cover_image" class="form-label">Book Cover</label>
+                            <input type="file" name="cover_image" class="form-control" id="id_cover_image" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_description" class="form-label">Description</label>
+                            <textarea name="description" rows="3" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Book</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
