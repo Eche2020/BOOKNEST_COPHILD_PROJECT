@@ -47,4 +47,185 @@ def book_detail(request, book_id):
 book = # your query code
 return render(request, "book_detail.html", {"book":book})
 
-3.  
+
+
+
+
+# Django Book Catalog Management System
+
+A comprehensive book catalog management system built with Django, featuring a responsive Bootstrap UI for managing books, genres, and inventory.
+
+## Features
+
+### User Features
+- Browse books with grid-based layout
+- Search books by title or author
+- Filter books by genre
+- View detailed book information
+- Responsive design for mobile and desktop
+
+### Admin Features
+- Add, edit, and delete books
+- Manage book inventory
+- Upload book cover images
+- Track stock quantities
+- Organize books by genres
+- Custom admin interface
+
+## Technology Stack
+
+- **Backend:** Django 4.2.7
+- **Frontend:** Bootstrap 5
+- **Database:** SQLite (default) / PostgreSQL (optional)
+- **Image Handling:** Pillow
+- **Styling:** CSS3
+- **Icons:** Font Awesome
+
+## Project Structure
+```
+bookstore_project/
+│
+├── bookstore/                  # Project Directory
+│   ├── __init__.py
+│   ├── settings.py            # Project settings
+│   ├── urls.py                # Main URL configuration
+│   └── wsgi.py                # WSGI configuration
+│
+├── books/                      # Books App Directory
+│   ├── migrations/            # Database migrations
+│   ├── static/                # Static files (CSS, JS)
+│   ├── templates/             # HTML templates
+│   │   ├── base.html         # Base template
+│   │   ├── add_book.html     # Add book form
+│   │   ├── book_list.html    # Book listing
+│   │   ├── book_detail.html  # Book details
+│   │   └── search_results.html
+│   ├── __init__.py
+│   ├── admin.py              # Admin configuration
+│   ├── models.py             # Database models
+│   ├── views.py              # View controllers
+│   ├── urls.py               # App URL configuration
+│   └── forms.py              # Form definitions
+│
+├── media/                     # User-uploaded media
+│   └── book_covers/          # Book cover images
+│
+├── static/                    # Project-wide static files
+├── manage.py                  # Django management script
+├── requirements.txt           # Project dependencies
+└── README.md                  # Project documentation
+```
+
+## Setup Instructions
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/django-book-catalog.git
+cd django-book-catalog
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Configure the database:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+5. Create a superuser:
+```bash
+python manage.py createsuperuser
+```
+
+6. Run the development server:
+```bash
+python manage.py runserver
+```
+
+7. Access the application:
+- Main site: `http://localhost:8000`
+- Admin panel: `http://localhost:8000/admin`
+
+## Models
+
+### Book Model
+- Title
+- Author
+- Publication Date
+- Price
+- Stock Quantity
+- Genre (Foreign Key)
+- Cover Image
+- Description
+
+### Genre Model
+- Name
+- Book Count (computed)
+
+## Views
+
+1. **Book List View**
+   - URL: `/`
+   - Displays all books in a grid layout
+   - Filter by genre
+   - Sort options
+
+2. **Book Detail View**
+   - URL: `/book/<id>/`
+   - Shows comprehensive book information
+   - Display cover image
+   - Stock status
+
+3. **Add Book View**
+   - URL: `/add-book/`
+   - Form for adding new books
+   - Image upload capability
+
+4. **Search View**
+   - URL: `/search/`
+   - Search by title or author
+   - Filter results
+
+## Admin Interface
+
+The custom admin interface provides:
+- Book management
+- Genre management
+- Stock tracking
+- User management
+- Customized list views
+- Search and filter capabilities
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Your Name - [your.email@example.com](mailto:your.email@example.com)
+
+Project Link: [https://github.com/yourusername/django-book-catalog](https://github.com/yourusername/django-book-catalog)
+
+## Acknowledgments
+
+- Django Documentation
+- Bootstrap Documentation
+- Font Awesome Icons
+- Django Admin Interface
